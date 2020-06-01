@@ -1,0 +1,12 @@
+#!/bin/bash  
+#PBS -l walltime=120:00:00
+#PBS -S /bin/bash
+#PBS -N pol_test    
+#PBS -q normal          
+#PBS -o pol_test_band.out       
+#PBS -e pol_test_band.err      
+#PBS -l select=2:ncpus=32:mpiprocs=32        
+cd $PBS_O_WORKDIR
+mpirun -mca btl self --bind-to core -map-by core -machinefile $PBS_NODEFILE  -np 50 CZTIMM_MPI_POL_Band
+~                                                                                                                                                                                                           
+~                                                                                                                 
